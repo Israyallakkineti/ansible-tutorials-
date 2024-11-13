@@ -1,0 +1,47 @@
+what is ansible:--
+
+Conclusion
+DevOps is a culture that merges software development (Dev) and information technology operations (Ops) to accelerate the system development life cycle and offer continuous delivery with top-notch software quality. It encompasses a set of practices that promote cooperation between development and operations teams to automate and simplify the infrastructure, workflows, and procedures involved in software development and deployment. That’s where Ansible in DevOps comes in!
+
+Automation is a vital component in DevOps as it eliminates the need for repetitive manual tasks, minimizes errors, and enhances efficiency. In today's rapidly changing software development environment, automation has become more important than ever. With increasingly complex IT environments that require maintenance, updates, and scaling-up activities, it is a burden and a daunting task for system admins to keep up with everything manually.
+
+In this article, we’ll discuss what Ansible is, how it works, and its role in DevOps.
+
+What is Ansible in DevOps?
+Ansible is an open-source software platform for automating configuration management. It is renowned for its scalability, flexibility, and ease of use and is widely used in various industries such as finance, healthcare, and technology. In 2015, it was acquired by Red Hat, Inc. and has since become one of the leading automation tools in the market.
+
+
+Why Use Ansible in DevOps?
+
+There are several compelling reasons why Ansible in DevOps is a popular choice for automation, configuration management, and application deployment. The following are some of the key benefits of using Ansible:
+
+It is easy to learn and use. It employs a simple yet powerful language known as YAML to describe automation tasks declaratively, making it easy to understand and maintain.
+It is agentless. This means it does not require any software to be installed on the target servers, making it simple to set up and use.
+Easy to scale. Ansible is scalable and designed to handle large-scale IT environments with ease.
+It is flexible. Ansible is flexible and can be used for various tasks, including configuration management, application deployment, and orchestration.
+It is highly extensible. It can be customized with plugins and modules to suit specific needs.
+It is community-driven. It has a vibrant and active community that contributes to the platform's development, provides support, and creates new modules and plugins.
+
+
+INSTALLATION ANSIBLE
+____________________________
+
+
+EX:-
+
+MASTER                                                                AGENT
+
+1. host name master       					2. host name agent
+3. ansible install 4 steps ( go to google website installation ubuntu in ansible) then copy and paste in local host master)
+4. ping (agent private ip/A)                                    5. ping (master private ip/Address)
+6. vi /etc/hosts                                                7. vi /etc/hosts
+8. master (p/ip master)                                         9. master (p/ip master)
+10. agent (p/ip agent)						11. agent (p/ip agent)
+12. vi /etc/ansible/hosts                                       17. vi ~/.ssh/authorized_keys
+13. goto last type--> (agent)					 (tocken and paste is) 
+14. ssh-keygen -t rsa (enter 4 times)
+15. cat ~/.ssh/id_rsa.pub
+16. tocken is there and copy
+18. ansible all -m ping
+19. ("ping" :"pong" is there is correct all cmds)
+
