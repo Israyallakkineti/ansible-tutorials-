@@ -1,0 +1,17 @@
+---
+ - hosts: agent
+   tasks:
+     - name: installing tree pkg on ubuntu
+       apt:
+         name: tree
+         state: present
+         update_cache: true
+       when:
+        - ansible_distribution|string == 'Ubuntu'
+     - name: installing tree on centos
+       yum:
+         name: tree
+         state: present
+       when:
+        - ansible_distribution|string == 'CentOS'
+

@@ -1,0 +1,17 @@
+---
+ - hosts: agent
+   tasks:
+     - name: installing default-jdk pkg on Ubuntu
+       apt:
+         name: default-jdk
+         state: present
+         update_cache: true
+       when:
+        - ansible_distribution|string == 'Ubuntu'
+        - name: installing tomcat pkg on Ubuntu
+          apt:
+            name: tomcat
+            state: present
+            update_cache: true
+          when:
+           - ansible_distribution|string == 'Ubunt

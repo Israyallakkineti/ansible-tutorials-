@@ -1,0 +1,17 @@
+---
+- name: Manage Cron Jobs
+  hosts: target_hosts
+  become: yes
+  tasks:
+    - name: Add a Cron Job
+      cron:
+        name: "my_cron_job"
+        minute: "0"
+        hour: "1"
+        job: "/path/to/your/script.sh"
+      state: present
+
+    - name: Remove a Cron Job
+      cron:
+        name: "my_cron_job"
+      state: present

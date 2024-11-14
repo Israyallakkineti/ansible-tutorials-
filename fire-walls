@@ -1,0 +1,33 @@
+---
+- name: Configure Firewall
+  hosts: your_target_host
+  become: yes
+  tasks:
+    - name: Allow SSH (Port 22)
+      iptables:
+        chain: INPUT
+        in_interface: eth0  # Change to your network interface
+        protocol: tcp
+        state: present
+        dport: 22
+      notify: Save iptables
+
+    - name: Allow HTTP (Port 80)
+      iptables:
+        chain: INPUT
+        in_interface: eth0
+        protocol: tcp
+        state: present
+        dport: 80
+      notify: Save iptables
+
+    - name: Drop all other incoming traffic
+      iptables:
+        chain: INPUT
+        in_interface: eth0
+        state: present
+        action: drop
+
+  handlers:
+    - name: Save iptables
+      shell: iptables-save > /etc/iptables/rules.v4

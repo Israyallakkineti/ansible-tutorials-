@@ -1,0 +1,27 @@
+---
+ - hosts: agent
+   tasks:
+     - name: install git
+       apt:
+         name: git
+         state: present
+         update_cache: true
+     - name: install pkg curl using package module
+       package:
+         name: curl
+         state: present
+         update_cache: true
+     - name: multiple packages
+       package:
+         name: ['tree','vim']
+         state: present
+         update_cache: true
+     - name: remove multiple package
+       package:
+         name: "{{ item }}"
+         state: absent
+       with_items:
+         - curl
+         - git
+         - vim
+

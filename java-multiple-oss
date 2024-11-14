@@ -1,0 +1,23 @@
+---
+ - hosts: agent
+   tasks:
+     - name: installing java-11* pkg on CentOS
+       yum:
+         name: java-11*
+         state: present
+         update_cache: true
+       when:
+        - ansible_distribution|string == 'CentOS'
+     - name: installing java-11* pkg on Redhat
+       yum:
+         name: java-11*
+         state: present
+       when:
+        - ansible_distribution|string == 'Redhat'
+     - name: installing java-jdk pkg on Ubuntu
+       apt:
+         name: java-11*
+         state: present
+         update_cache: true
+       when:
+        - ansible_distribution|string == 'Ubuntu'
